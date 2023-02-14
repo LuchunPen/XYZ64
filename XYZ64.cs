@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) Luchunpen (bwolf88).  All rights reserved.
+Copyright (c) Luchunpen.
 Date: 28.07.2016 21:43:07
 */
 
@@ -42,11 +42,6 @@ namespace Nano3
             set { Index = ((Index & CL_MASK_Z) | (MASK_VALUE & (value + ADDVAL)) << SHIFT_Z); }
         }
 
-        public Vector3I Position
-        {
-            get { return new Vector3I(X, Y, Z); }
-        }
-
         private XYZ64(long index)
         {
             Index = index;
@@ -57,12 +52,6 @@ namespace Nano3
             Index = (MASK_VALUE & (x + ADDVAL))
                 | (MASK_VALUE & (y + ADDVAL)) << SHIFT_Y
                 | (MASK_VALUE & (z + ADDVAL)) << SHIFT_Z;
-        }
-        public XYZ64(Vector3I position)
-        {
-            Index = (MASK_VALUE & (position.X + ADDVAL))
-                | (MASK_VALUE & (position.Y + ADDVAL)) << SHIFT_Y
-                | (MASK_VALUE & (position.Z + ADDVAL)) << SHIFT_Z;
         }
 
         public static explicit operator long (XYZ64 coord)
